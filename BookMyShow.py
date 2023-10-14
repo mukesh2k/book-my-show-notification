@@ -57,7 +57,8 @@ class NotificationThread( Thread ):
                     if device is not None:
                         ntfyFile.write( ', "device_iden": "' + device + '"' )
                     ntfyFile.write( '}' )
-                cmd = 'ntfy -t "{0}" send "{1}"'.format( self.title, self.message)
+                cmd = 'ntfy -t "{0}" send "{1}"'
+                cmd = 'ntfy publish cinemaToCheck {0} {1}'.format( self.title, self.message)
                 system( cmd )
             if exists( configFilePath ):
                 # we don't need this config anymore
@@ -65,7 +66,7 @@ class NotificationThread( Thread ):
         while True:
             # Keep on sending desktop notifications till the program is closed
             start = time()
-            cmd = 'ntfy -t "{0}" send "{1}"'.format( self.title, self.message)
+            cmd = 'ntfy publish cinemaToCheck {0} {1}'.format( self.title, self.message)
             system( cmd )
             stop = time()
             timeRemaining = self.interval - ( stop - start )

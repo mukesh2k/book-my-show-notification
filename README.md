@@ -1,4 +1,5 @@
 # BookMyShow notification
+
 A python script to notify as soon as tickets for a given show are available on BookMyShow
 
 ---
@@ -13,6 +14,7 @@ Install dependencies using:<br />
 ### Usage
 
 There are multiple fields required while running the script:
+
 ```
 usage: ./BookMyShow.py [-h] -m MOVIE -c CINEMA [-f {2D,3D,IMAX 2D,IMAX 3D}] -d
                        DATE -r REGIONCODE [-i INTERVAL] [-a ALARM]
@@ -46,9 +48,16 @@ To check for shows one can run similar commands:<br />
 `./BookMyShow.py --movie "flash" --cinema "nexus" --date "20230619" --regionCode "BANG" --format "3D"`
 `./BookMyShow.py --movie "flash" --cinema "nexus" --date "20230619" --regionCode "BANG"`
 
+For push notification
+For ntfy in your terminal, install ntfy app in your mobile and sign up for the topic
+cinemaToCheck
+
+Run the command`./BookMyShow.py -m Leo -c prasad -d 20231019 -r HYD`
+
 ---
 
 ### Caveats
+
 There are known issues when using desktop notification with `tmux`. It's highly recommended **not** to run this script inside tmux if you want desktop notifications.
 
 ---
